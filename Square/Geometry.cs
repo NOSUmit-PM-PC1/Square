@@ -28,7 +28,7 @@ namespace Square
 
     class Vector
     {
-        Point pointBegin, pointEnd;
+        public Point pointBegin, pointEnd;
         Point koor;
         public Vector(Point userPointBegin, Point userPointEnd)
         {
@@ -65,8 +65,28 @@ namespace Square
         {
             Vector ab = new Vector(A, B);
             Vector ac = new Vector(A, C);
-            return Math.Abs(ab.CroossProdact(ac)) / 2;
+            return Math.Abs(ab.CroossProdact(ac)) / 2.0;
         }
 
+    }
+
+    class Trapezoid
+    {
+        Vector vector;
+
+        public Trapezoid(Vector userVector)
+        {
+            vector = userVector;
+        }
+
+        public Trapezoid(Point userPoint1, Point userPoint2)
+        {
+            vector = new Vector(userPoint1, userPoint2);
+        }
+
+        public int SignDoubleSquare()
+        {
+            return (vector.pointBegin.y + vector.pointEnd.y) * (vector.pointEnd.x - vector.pointBegin.x);
+        }
     }
 }

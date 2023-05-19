@@ -10,24 +10,24 @@ namespace Square
     {
         static void Main(string[] args)
         {
-            Point a = new Point(5, 6);
-            Point b = new Point(10, 1);
-            Point c = new Point(1, -10);
-            Console.WriteLine(a.ToString());
-            Console.WriteLine(b.ToString());
+            List<Point> nAngle = new List<Point>()
+            {
+               // new Point(0, 0), new Point(4, 3), new Point(8, 1),
+               // new Point(7, -3), new Point(2, -5)
+               new Point(0, 0), new Point(0, 4), new Point(5, 4), new Point(5, 0), new Point(0, 3)
+            };
 
-            Vector ab = new Vector(a, b);
-            Console.WriteLine(ab.ToString());
-            Console.WriteLine(ab.Length());
+            List<Triangle> listTriangles = new List<Triangle>();
+            for (int i = 0; i < nAngle.Count - 2; i++)
+            {
+                listTriangles.Add(new Triangle(nAngle[0], nAngle[i + 1], nAngle[i + 2]));
+            }
 
-            Triangle abc = new Triangle(a, b, c);
-            Console.WriteLine(abc.Square());
-
-            Triangle bac = new Triangle(c, a, b);
-            Console.WriteLine(bac.Square());
-
-            Triangle newTri = new Triangle(new Point(0, 0), new Point(0, 4), new Point(5, 0));
-            Console.WriteLine(newTri.Square());
+            double s = 0;
+            foreach (var triangle in listTriangles)
+                s += triangle.Square();
+            Console.WriteLine(s);
+            
         }
     }
 }
