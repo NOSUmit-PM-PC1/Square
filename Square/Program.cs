@@ -27,7 +27,7 @@ namespace Square
                 s += tr.SignDoubleSquare();
             }
             Console.WriteLine(s);
-            /*List<Point> nAngle = new List<Point>()
+            List<Point> nAngle = new List<Point>()
             {
                // new Point(0, 0), new Point(4, 3), new Point(8, 1),
                // new Point(7, -3), new Point(2, -5)
@@ -44,7 +44,7 @@ namespace Square
             foreach (var triangle in listTriangles)
                 s += triangle.Square();
             Console.WriteLine(s);
-            */
+            
         }
     }
 }
